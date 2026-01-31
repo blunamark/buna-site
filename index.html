@@ -1,39 +1,60 @@
-<div class="hero">
-  <div class="hero-content">
-    <p>
-      Ai construit o afacere din muncă, decizii grele și ani de responsabilitate.
-    </p>
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-    <p>
-      Poate că astăzi simți că totul depinde încă de tine.<br>
-      Că trebuie să controlezi, să verifici, să fii mereu prezent.
-    </p>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    color: #fff;
+  }
 
-    <p>
-      Nu pentru că nu ai oameni.<br>
-      Ci pentru că, în timp, încrederea s-a pierdut.
-    </p>
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.55),
+        rgba(0, 0, 0, 0.55)
+      ),
+      linear-gradient(120deg, #1e1e1e, #3a3a3a);
+    /* aici va veni imaginea reală mai târziu */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+  }
 
-    <p>
-      Aici nu este vorba despre critică.<br>
-      Nici despre ce ai fi putut face diferit.
-    </p>
+  .hero-content {
+    max-width: 780px;
+    text-align: center;
+    line-height: 1.7;
+    font-size: 1.05rem;
+  }
 
-    <p>
-      Este despre a-ți reda liniștea.<br>
-      Despre a construi o afacere care crește fără să te consume.<br>
-      Despre a putea avea din nou încredere — în oameni, în procese, în tine.
-    </p>
+  .hero-content p {
+    margin-bottom: 18px;
+  }
 
-    <p>
-      Dacă simți că a venit momentul să nu mai duci totul singur,<br>
-      primul pas nu este unul mare.
-    </p>
+  .hero-content .highlight {
+    font-size: 1.35rem;
+    margin-top: 30px;
+    font-weight: 600;
+  }
 
-    <p class="highlight">
-      Este un act de <strong>curaj</strong>.
-    </p>
+  .hero-button {
+    display: inline-block;
+    margin-top: 35px;
+    padding: 14px 42px;
+    border: 2px solid #fff;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    transition: all 0.35s ease;
+  }
 
-    <a href="curaj.html" class="hero-button">Curaj</a>
-  </div>
-</div>
+  .hero-button:hover {
+    background: #fff;
+    color: #000;
+  }
+</style>
