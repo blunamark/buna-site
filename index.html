@@ -18,18 +18,30 @@
     }
 
     /* Fundal provizoriu (gradient). Mai târziu îl înlocuim cu o imagine creată pentru tine. */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 40px;
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
 
-      background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url("assets/fundal-site.png");
+  /* fundal calm bej */
+  background-color: #f3efe8;
 
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
+  /* 2 straturi: overlay foarte fin + imagine */
+  background-image:
+    linear-gradient(rgba(255,255,255,0.35), rgba(255,255,255,0.35)),
+    url("assets/fundal-site.png");
+
+  /* overlay = cover, imagine = dimensiune controlată */
+  background-size: cover, 620px auto;
+
+  /* overlay centrat, simbol în colț */
+  background-position: center, bottom right;
+
+  background-repeat: no-repeat, no-repeat;
+}
+
 
     }
 
