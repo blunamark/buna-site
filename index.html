@@ -7,71 +7,64 @@
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    :root{
-      --bg: #f3efe8;         /* bej / unt */
-      --text: #1f2937;       /* text calm */
-      --border: #1f2937;
-    }
-
     html, body { height: 100%; }
 
-    body{
+    body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
     }
 
-    /* containerul principal */
-    .hero{
-      min-height: 100vh;
+    /* HERO full-screen */
+    .hero {
+      position: relative;
+      height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       padding: 48px 22px;
-      position: relative;
-      overflow: hidden; /* ca simbolul să nu iasă aiurea */
+
+      /* imaginea full pe tot ecranul */
+      background-image: url("assets/fundal-site.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
 
-    /* simbolul e independent, în colț */
-    .symbol{
+    /* overlay pentru lizibilitate (mai deschis sau mai închis după gust) */
+    .hero::before {
+      content: "";
       position: absolute;
-      right: 0;
-      bottom: 0;
-      width: 520px;         /* controlezi mărimea aici */
-      max-width: 55vw;      /* ca să nu fie enorm pe ecrane mici */
-      height: auto;
-      opacity: 0.85;        /* îl facem discret */
-      pointer-events: none; /* să nu poată fi selectat/click */
-      user-select: none;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+      /* dacă vrei mai luminos: 0.25, mai întunecat: 0.45 */
     }
 
-    /* textul în centru */
-    .content{
+    /* conținutul peste overlay */
+    .content {
+      position: relative;
+      z-index: 1;
       width: min(820px, 100%);
+      color: #ffffff;
       line-height: 1.75;
       font-size: 1.05rem;
-      padding: 10px 0;
-      position: relative;
-      z-index: 2; /* mereu peste simbol */
+      text-shadow: 0 2px 14px rgba(0,0,0,0.35);
     }
 
-    .content p{ margin-bottom: 16px; }
+    .content p { margin-bottom: 16px; }
 
-    .highlight{
+    .highlight {
       font-size: 1.35rem;
       font-weight: 700;
       margin-top: 22px;
       margin-bottom: 0;
     }
 
-    .button{
+    .button {
       display: inline-block;
       margin-top: 28px;
       padding: 14px 46px;
-      border: 2px solid var(--border);
-      color: var(--text);
+      border: 2px solid #ffffff;
+      color: #ffffff;
       text-decoration: none;
       font-size: 1rem;
       letter-spacing: 1px;
@@ -80,35 +73,21 @@
       background: transparent;
     }
 
-    .button:hover{
-      background: var(--text);
-      color: #fff;
+    .button:hover {
+      background: #ffffff;
+      color: #000000;
     }
 
-    /* pe mobil facem simbolul mai mic */
-    @media (max-width: 700px){
-      .symbol{
-        width: 360px;
-        max-width: 70vw;
-        opacity: 0.75;
-      }
-      .content{
-        font-size: 1rem;
-      }
-      .highlight{
-        font-size: 1.18rem;
-      }
+    /* Mobil */
+    @media (max-width: 700px) {
+      .content { font-size: 1rem; }
+      .highlight { font-size: 1.18rem; }
     }
   </style>
 </head>
 
 <body>
   <section class="hero">
-
-    <!-- simbolul (imaginea) în colț -->
-    <img class="symbol" src="assets/fundal-site.png" alt="" />
-
-    <!-- textul în centru -->
     <div class="content">
       <p>Ai construit o afacere din muncă, decizii grele și ani de responsabilitate.</p>
 
@@ -142,7 +121,6 @@
 
       <a class="button" href="#">Curaj</a>
     </div>
-
   </section>
 </body>
 </html>
