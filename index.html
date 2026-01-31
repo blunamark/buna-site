@@ -6,8 +6,15 @@
   <title>Bluna Mark</title>
 
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { height: 100%; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
@@ -25,39 +32,41 @@
       padding: 48px 22px;
     }
 
-    /* Imagine full-screen (cover) */
+    /* Imagine full-screen */
     .hero img.bg {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;      /* cheia pentru full-screen */
-      object-position: center;/* schimbăm dacă vrei colț */
-      transform: scale(1.02); /* mică protecție anti „gap” */
+      object-fit: cover;
+      object-position: center;
+      transform: scale(1.02);
       z-index: 0;
     }
 
-    /* Overlay pentru lizibilitate (transparent, NU gri) */
+    /* Overlay transparent (opțional) */
     .hero::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0); /* 0.10-0.25 e sweet spot */
+      background: rgba(0, 0, 0, 0); /* schimbă la 0.12–0.25 dacă vrei overlay */
       z-index: 1;
-    
+    }
 
-    /* Text peste */
+    /* Conținut peste imagine */
     .content {
       position: relative;
       z-index: 2;
       width: min(820px, 100%);
-      color: #1f2937; /* text închis, potrivit pe bej */
+      color: #1f2937;
       line-height: 1.75;
       font-size: 1.05rem;
       padding: 18px 10px;
     }
 
-    .content p { margin-bottom: 16px; }
+    .content p {
+      margin-bottom: 16px;
+    }
 
     .highlight {
       font-size: 1.35rem;
@@ -77,30 +86,37 @@
       letter-spacing: 1px;
       border-radius: 12px;
       transition: all 0.25s ease;
-      background: rgba(243,239,232,0.35);
+      background: rgba(243, 239, 232, 0.35);
       backdrop-filter: blur(2px);
       -webkit-backdrop-filter: blur(2px);
     }
 
     .button:hover {
       background: #1f2937;
-      color: #fff;
+      color: #ffffff;
     }
 
-    /* Mobil */
+    /* Mobile */
     @media (max-width: 700px) {
-      .content { font-size: 1rem; }
-      .highlight { font-size: 1.18rem; }
+      .content {
+        font-size: 1rem;
+      }
+
+      .highlight {
+        font-size: 1.18rem;
+      }
     }
   </style>
 </head>
 
 <body>
+
   <section class="hero">
 
-    <!-- Imaginea full-screen -->
-    <img class="bg" src="assets/fundal-site.png" alt="" />
+    <!-- Imagine de fundal -->
+    <img class="bg" src="assets/fundal-site.png" alt="Bluna Mark background" />
 
+    <!-- Text -->
     <div class="content">
       <p>Ai construit o afacere din muncă, decizii grele și ani de responsabilitate.</p>
 
@@ -136,5 +152,6 @@
     </div>
 
   </section>
+
 </body>
 </html>
