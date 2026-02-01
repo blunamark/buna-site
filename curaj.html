@@ -26,7 +26,7 @@
       position: relative;
       min-height: 100vh;
       overflow: hidden;
-      padding: 48px 22px 72px;
+      padding: 110px 22px 72px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -43,12 +43,20 @@
       z-index: 0;
     }
 
-    .hero::before {
-      content: "";
+    /* LOGO */
+    .logo {
       position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0);
-      z-index: 1;
+      top: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      opacity: 0.9;
+    }
+
+    .logo svg {
+      width: 72px;
+      height: 72px;
+      cursor: pointer;
     }
 
     .layout {
@@ -95,16 +103,11 @@
       transition: all 0.25s ease;
       background: rgba(243, 239, 232, 0.35);
       backdrop-filter: blur(2px);
-      -webkit-backdrop-filter: blur(2px);
       cursor: pointer;
       text-align: left;
     }
 
-    .menu-btn:hover {
-      background: #1f2937;
-      color: #ffffff;
-    }
-
+    .menu-btn:hover,
     .menu-btn.active {
       background: #1f2937;
       color: #ffffff;
@@ -123,8 +126,6 @@
       color: #1f2937;
       line-height: 1.75;
       font-size: 1.05rem;
-
-      /* același stil trapez sus + jos */
       clip-path: polygon(
         0% 8%,
         12% 0%,
@@ -159,7 +160,6 @@
       transition: all 0.25s ease;
       background: rgba(243, 239, 232, 0.35);
       backdrop-filter: blur(2px);
-      -webkit-backdrop-filter: blur(2px);
     }
 
     .back:hover {
@@ -176,7 +176,6 @@
       color: rgba(31, 41, 55, 0.6);
     }
 
-    /* Mobile */
     @media (max-width: 820px) {
       .layout {
         flex-direction: column;
@@ -184,23 +183,12 @@
       .menu, .menu-box {
         width: 100%;
       }
-      .menu {
-        flex: 1 1 auto;
-      }
-      .panel-box {
-        clip-path: polygon(
-          0% 6%,
-          10% 0%,
-          90% 0%,
-          100% 6%,
-          100% 94%,
-          90% 100%,
-          10% 100%,
-          0% 94%
-        );
-      }
       .menu-btn {
         text-align: center;
+      }
+      .logo svg {
+        width: 60px;
+        height: 60px;
       }
     }
   </style>
@@ -211,12 +199,40 @@
   <section class="hero">
     <img class="bg" src="assets/fundal-site.png" alt="Bluna Mark background" />
 
+    <!-- LOGO CLICABIL -->
+    <a class="logo" href="index.html" aria-label="Bluna Mark - Pagina principală">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <path d="
+          M60 30
+          H105
+          C135 30 150 45 150 65
+          C150 80 142 90 128 95
+          C145 100 155 112 155 130
+          C155 155 135 170 105 170
+          H60
+          Z
+
+          M85 55
+          V85
+          H103
+          C115 85 120 80 120 70
+          C120 60 115 55 103 55
+          Z
+
+          M85 105
+          V145
+          H105
+          C120 145 125 140 125 125
+          C125 110 120 105 105 105
+          Z
+        " fill="#1F2A44"/>
+      </svg>
+    </a>
+
     <div class="layout">
-      <!-- MENIU STÂNGA -->
       <aside class="menu">
         <div class="menu-box">
           <div class="menu-title">Meniu</div>
-
           <button class="menu-btn active" data-section="despre-tine">Despre tine</button>
           <button class="menu-btn" data-section="despre-mine">Despre mine</button>
           <button class="menu-btn" data-section="ce-cer">Ce cer</button>
@@ -226,12 +242,8 @@
         </div>
       </aside>
 
-      <!-- CONȚINUT DREAPTA -->
       <main class="panel">
-        <div class="panel-box" id="content">
-          <!-- Conținutul se schimbă din JS -->
-        </div>
-
+        <div class="panel-box" id="content"></div>
         <a class="back" href="index.html">Înapoi</a>
       </main>
     </div>
@@ -244,7 +256,7 @@
       "despre-tine": `
         <h1>Despre tine</h1>
         <p><strong>Placeholder:</strong> aici va fi textul tău pentru secțiunea „Despre tine”.</p>
-        <p>Trimite-mi textul și îl pun exact cum vrei (cu paragrafe, rânduri, accent, etc.).</p>
+        <p>Trimite-mi textul și îl pun exact cum vrei.</p>
       `,
       "despre-mine": `
         <h1>Despre mine</h1>
@@ -272,21 +284,16 @@
     const buttons = document.querySelectorAll(".menu-btn");
 
     function setActive(sectionKey) {
-      // update content
       contentEl.innerHTML = sections[sectionKey] || "<h1>Secțiune</h1><p>Conținut indisponibil.</p>";
-
-      // update active button style
       buttons.forEach(btn => {
         btn.classList.toggle("active", btn.dataset.section === sectionKey);
       });
     }
 
-    // attach click handlers
     buttons.forEach(btn => {
       btn.addEventListener("click", () => setActive(btn.dataset.section));
     });
 
-    // default section on load
     setActive("despre-tine");
   </script>
 
