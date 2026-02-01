@@ -8,17 +8,20 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body { height: 100%; }
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
 
     .hero {
       position: relative;
-      height: 100vh;
+      min-height: 100vh;
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 48px 22px;
+      padding: 48px 22px 72px;
     }
 
     .hero img.bg {
@@ -46,24 +49,13 @@
       width: min(820px, 100%);
       color: #1f2937;
       line-height: 1.75;
-      text-align: center;
     }
 
     .card {
       padding: 28px 22px;
       border: 1px solid rgba(31, 41, 55, 0.28);
       border-radius: 14px;
-      background: rgba(255, 255, 255, 0.0);
-    }
-
-    h1 {
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-    }
-
-    p {
-      margin-top: 8px;
-      font-size: 1.05rem;
+      background: rgba(255, 255, 255, 0);
     }
 
     .back {
@@ -74,34 +66,43 @@
       color: #1f2937;
       text-decoration: none;
       font-size: 0.95rem;
-      letter-spacing: 1px;
       border-radius: 12px;
       transition: all 0.25s ease;
       background: rgba(243, 239, 232, 0.35);
-      backdrop-filter: blur(2px);
-      -webkit-backdrop-filter: blur(2px);
     }
 
     .back:hover {
       background: #1f2937;
       color: #ffffff;
     }
+
+    footer {
+      position: absolute;
+      bottom: 16px;
+      left: 22px;
+      z-index: 2;
+      font-size: 0.85rem;
+      color: rgba(31, 41, 55, 0.6);
+    }
   </style>
 </head>
 
 <body>
+
   <section class="hero">
     <img class="bg" src="assets/fundal-site.png" alt="Bluna Mark background" />
 
     <div class="content">
       <div class="card">
         <h1>Curaj</h1>
-        <p>Pagina 2 este activă ✅</p>
-        <p>Acum urmează să punem meniul cu butoane în stânga.</p>
+        <p>Pagina a doua este activă.</p>
 
         <a class="back" href="index.html">Înapoi</a>
       </div>
     </div>
+
+    <footer>© 2026 Bluna Mark S.R.L.</footer>
   </section>
+
 </body>
 </html>
