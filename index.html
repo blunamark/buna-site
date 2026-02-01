@@ -60,7 +60,6 @@
       left: 50%;
       transform: translateX(-50%);
       z-index: 3;
-      opacity: 0.9;
     }
 
     .logo svg {
@@ -90,7 +89,6 @@
       font-size: 1.35rem;
       font-weight: 700;
       margin-top: 22px;
-      margin-bottom: 0;
     }
 
     .button {
@@ -132,87 +130,74 @@
 
 <body>
 
-  <section class="hero">
-    <img class="bg" src="assets/fundal-site.png" alt="Bluna Mark background" />
+<section class="hero">
+  <img class="bg" src="assets/fundal-site.png" alt="Bluna Mark background" />
 
-    <!-- LOGO BLUNA (industrial) -->
-    <div class="logo">
-      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <filter id="industrialShadow" x="-20%" y="-20%" width="140%" height="140%">
-            <feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity="0.22"/>
-          </filter>
-        </defs>
+  <!-- LOGO BLUNA 3D -->
+  <div class="logo">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="bFace" x1="40" y1="20" x2="160" y2="180">
+          <stop offset="0%" stop-color="#2C3A5C"/>
+          <stop offset="40%" stop-color="#1F2A44"/>
+          <stop offset="75%" stop-color="#141C2F"/>
+          <stop offset="100%" stop-color="#2A3656"/>
+        </linearGradient>
 
-        <path
-          filter="url(#industrialShadow)"
-          d="
-            M55 28
-            H110
-            C142 28 158 44 158 66
-            C158 82 148 94 130 98
-            C150 103 162 118 162 138
-            C162 162 142 178 110 178
-            H55
-            Z
+        <filter id="outerShadow" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="2" dy="4" stdDeviation="4" flood-opacity="0.25"/>
+        </filter>
 
-            M85 54
-            V88
-            H108
-            C122 88 128 82 128 71
-            C128 60 122 54 108 54
-            Z
+        <filter id="innerBevel">
+          <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+          <feOffset dx="0" dy="1"/>
+          <feComposite operator="arithmetic" k2="-1" k3="1"/>
+        </filter>
+      </defs>
 
-            M85 110
-            V150
-            H112
-            C128 150 134 144 134 130
-            C134 116 128 110 112 110
-            Z
-          "
-          fill="#1F2A44"
-        />
-      </svg>
+      <path
+        d="
+          M55 28
+          H110
+          C142 28 158 44 158 66
+          C158 82 148 94 130 98
+          C150 103 162 118 162 138
+          C162 162 142 178 110 178
+          H55
+          Z
+
+          M85 54
+          V88
+          H108
+          C122 88 128 82 128 71
+          C128 60 122 54 108 54
+          Z
+
+          M85 110
+          V150
+          H112
+          C128 150 134 144 134 130
+          C134 116 128 110 112 110
+          Z
+        "
+        fill="url(#bFace)"
+        filter="url(#outerShadow)"
+      />
+    </svg>
+  </div>
+
+  <div class="content">
+    <div class="text-box">
+      <p>Ai construit o afacere din muncă, decizii grele și ani de responsabilitate.</p>
+      <p>Poate că astăzi simți că totul depinde încă de tine.</p>
+      <p>Este un act de curaj.</p>
     </div>
 
-    <div class="content">
-      <div class="text-box">
-        <p>Ai construit o afacere din muncă, decizii grele și ani de responsabilitate.</p>
+    <a class="button" href="curaj.html">Curaj</a>
+  </div>
 
-        <p>
-          Poate că astăzi simți că totul depinde încă de tine.<br>
-          Că trebuie să controlezi, să verifici, să fii mereu prezent.
-        </p>
-
-        <p>
-          Nu pentru că nu ai oameni.<br>
-          Ci pentru că, în timp, încrederea s-a pierdut.
-        </p>
-
-        <p>
-          Aici nu este vorba despre critică.<br>
-          Nici despre ce ai fi putut face diferit.
-        </p>
-
-        <p>
-          Este despre a-ți reda liniștea.<br>
-          Despre a construi o afacere care crește fără să te consume.<br>
-          Despre a putea avea din nou încredere — în oameni, în procese, în tine.
-        </p>
-
-        <p>
-          Dacă simți că a venit momentul să nu mai duci totul singur,<br>
-          primul pas nu este unul mare.
-        </p>
-
-        <p class="highlight">Este un act de curaj.</p>
-      </div>
-
-      <a class="button" href="curaj.html">Curaj</a>
-    </div>
-
-    <footer>© 2026 Bluna Mark S.R.L.</footer>
-  </section>
+  <footer>© 2026 Bluna Mark S.R.L.</footer>
+</section>
 
 </body>
 </html>
