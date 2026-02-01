@@ -30,7 +30,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 48px 22px 72px;
+      padding: 110px 22px 72px;
     }
 
     .hero img.bg {
@@ -44,14 +44,6 @@
       z-index: 0;
     }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0);
-      z-index: 1;
-    }
-
     .content {
       position: relative;
       z-index: 2;
@@ -59,6 +51,21 @@
       color: #1f2937;
       line-height: 1.75;
       font-size: 1.05rem;
+    }
+
+    /* LOGO */
+    .logo {
+      position: absolute;
+      top: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      opacity: 0.9;
+    }
+
+    .logo svg {
+      width: 72px;
+      height: 72px;
     }
 
     .text-box {
@@ -99,7 +106,6 @@
       transition: all 0.25s ease;
       background: rgba(243, 239, 232, 0.35);
       backdrop-filter: blur(2px);
-      -webkit-backdrop-filter: blur(2px);
     }
 
     .button:hover {
@@ -107,7 +113,6 @@
       color: #ffffff;
     }
 
-    /* Footer */
     footer {
       position: absolute;
       bottom: 16px;
@@ -120,6 +125,7 @@
     @media (max-width: 700px) {
       .content { font-size: 1rem; }
       .highlight { font-size: 1.18rem; }
+      .logo svg { width: 60px; height: 60px; }
     }
   </style>
 </head>
@@ -128,6 +134,36 @@
 
   <section class="hero">
     <img class="bg" src="assets/fundal-site.png" alt="Bluna Mark background" />
+
+    <!-- LOGO BLUNA -->
+    <div class="logo">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <path d="
+          M60 30
+          H105
+          C135 30 150 45 150 65
+          C150 80 142 90 128 95
+          C145 100 155 112 155 130
+          C155 155 135 170 105 170
+          H60
+          Z
+
+          M85 55
+          V85
+          H103
+          C115 85 120 80 120 70
+          C120 60 115 55 103 55
+          Z
+
+          M85 105
+          V145
+          H105
+          C120 145 125 140 125 125
+          C125 110 120 105 105 105
+          Z
+        " fill="#1F2A44"/>
+      </svg>
+    </div>
 
     <div class="content">
       <div class="text-box">
