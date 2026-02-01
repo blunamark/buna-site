@@ -53,6 +53,7 @@
       z-index: 0;
     }
 
+    /* Overlay transparent (opțional) */
     .hero::before {
       content: "";
       position: absolute;
@@ -71,19 +72,26 @@
       font-size: 1.05rem;
     }
 
-    /* Chenar trapez */
+    /* Chenar cu tăieturi sus + jos (model trapez) */
     .text-box {
-      padding: 26px 22px 34px;
+      padding: 28px 22px 34px;
       border: 1px solid rgba(31, 41, 55, 0.28);
+      background: rgba(255, 255, 255, 0);
       clip-path: polygon(
-        0% 0%,
-        100% 0%,
+        /* sus (tăiat) */
+        0% 8%,
+        12% 0%,
+        88% 0%,
+        100% 8%,
+
+        /* dreapta */
         100% 92%,
+
+        /* jos (tăiat) */
         88% 100%,
         12% 100%,
         0% 92%
       );
-      background: rgba(255, 255, 255, 0.0);
     }
 
     .text-box p {
@@ -128,6 +136,20 @@
       .highlight {
         font-size: 1.18rem;
       }
+
+      /* pe mobil, tăietura puțin mai discretă */
+      .text-box {
+        clip-path: polygon(
+          0% 6%,
+          10% 0%,
+          90% 0%,
+          100% 6%,
+          100% 94%,
+          90% 100%,
+          10% 100%,
+          0% 94%
+        );
+      }
     }
   </style>
 </head>
@@ -136,11 +158,12 @@
 
   <section class="hero">
 
+    <!-- Imagine de fundal -->
     <img class="bg" src="assets/fundal-site.png" alt="Bluna Mark background" />
 
     <div class="content">
 
-      <!-- Chenar -->
+      <!-- Chenar text (sus + jos trapez) -->
       <div class="text-box">
         <p>Ai construit o afacere din muncă, decizii grele și ani de responsabilitate.</p>
 
@@ -173,7 +196,7 @@
         <p class="highlight">Este un act de curaj.</p>
       </div>
 
-      <!-- Buton separat -->
+      <!-- Buton (în afara chenarului) -->
       <a class="button" href="#">Curaj</a>
 
     </div>
